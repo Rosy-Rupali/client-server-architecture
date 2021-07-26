@@ -33,9 +33,9 @@ const createInnerHtml=()=>{
         <td>${empPayrollData._salary}</td>
         <td>${stringifyDate( empPayrollData._startDate)}</td>
         <td>
-            <img id="${empPayrollData._name}" onclick="remove(this)"
+            <img id="${empPayrollData.id}" onclick="remove(this)"
              alt="delete" src="../assets/icons/delete-black-18dp.svg">
-            <img id="${empPayrollData._id}" alt="edit" onclick="update(this)"
+            <img id="${empPayrollData.id}" alt="edit" onclick="update(this)"
             src="../assets/icons/create-black-18dp.svg">
         </td>
     </tr>
@@ -53,7 +53,7 @@ const getDeptHtml=(deptList)=>{
 }
 
 const remove=(node)=>{
-    let empPayrollData=empPayrollList.find(empData => empData._name==node._id);
+    let empPayrollData=empPayrollList.find(empData => empData._name==node.id);
     if(!empPayrollData) return;
     const index=empPayrollList
                 .map(empData => empData._name)
